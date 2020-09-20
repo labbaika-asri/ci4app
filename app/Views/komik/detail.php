@@ -26,8 +26,17 @@
                                 </small>
                             </p>
 
-                            <a href="" class="btn btn-warning">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="/komik/edit/<?= $komik['slug']; ?>"
+                                class="btn btn-warning">Edit</a>
+                            <form
+                                action="/komik/<?= $komik['id']; ?>"
+                                method="POST" class="d-inline">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <?= csrf_field(); ?>
+
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Apakah anda yakin ?');">Hapus</button>
+                            </form>
                             <br><br>
                             <a href="/komik">Kembali ke daftar komik</a>
                         </div>
